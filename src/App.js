@@ -1,22 +1,23 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+
+//three.js
+import {Canvas} from "@react-three/fiber"
+import { OrbitControls } from "@react-three/drei"
+import Box from './Box';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+            <Canvas className='canvas' >
+                <Box/>
+                <ambientLight intensity={1}/>
+                <directionalLight position={[-2,5,2]} intensity={1}/>
+                <OrbitControls enableZoom={false} autoRotate={true}/>
+            </Canvas>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
